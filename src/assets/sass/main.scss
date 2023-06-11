@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+//abstracts
+@import './base/typography';
+//vendors
+
+//base
+
+//layout
+@import './layout/nav';
+
+//components
+@import './components/button';
+//pages
+
+@import'./pages/app';
+@import'./pages/default';
+@import'./pages/inicio';
+
+//themes

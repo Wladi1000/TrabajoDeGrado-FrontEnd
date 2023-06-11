@@ -1,0 +1,34 @@
+.default{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  padding: 1em;
+  
+  h1{
+    align-self: center;
+    margin-bottom: 1em;
+  }
+  
+  h2{
+    align-self: center;
+    margin-bottom: .4em;
+  }
+
+  &__caracteristicas{
+    padding: .4em;
+    width: 100%;
+    list-style: none;
+    li{
+      color: rgb(92, 92, 92);
+      margin-bottom: .2em;
+    }
+  }
+
+  &__acciones{
+    display: flex;
+    flex-direction: column;
+  }
+}

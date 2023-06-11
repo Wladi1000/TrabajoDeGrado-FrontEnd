@@ -1,0 +1,14 @@
+button{
+  margin: .3em 0;
+  padding:1em 0;
+
+  appearance: none;
+
+  border-radius: .35em;
+  background-color: transparent;
+
+  &.login{
+    background-color: #e7ed2dc1;
+  }
+
+}
