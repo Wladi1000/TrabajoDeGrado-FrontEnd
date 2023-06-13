@@ -5,5 +5,5 @@ import Nav from '../components/nav.vue';
   <div class="inicio">
     <h1>Esto es un inicio</h1>
   </div>
-  <Nav></Nav>
+  <Nav />
 </template>
