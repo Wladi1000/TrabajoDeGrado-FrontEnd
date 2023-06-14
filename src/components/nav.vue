@@ -14,20 +14,18 @@ import { RouterLink } from "vue-router";
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbar-toggler">
-      <a class="navbar-brand" href="#">Hidden brand</a>
+      <a class="navbar-brand" href="#">Alianza Shop</a>
       <ul class="navbar-nav d-flex justify-content-center align-items-center">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+          <router-link to="/Inicio" class="nav-link active" aria-current="page" href="#">Inicio</router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Buscar</a>
+          <router-link to="/Buscar" class="nav-link active" aria-current="page" href="#">Buscar</router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">Carrito</a>
+          <router-link to="/Perfil" class="nav-link active" aria-current="page" href="#">Perfil</router-link>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Perfil</a>
-        </li>
+        
       </ul>
       <!-- <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

@@ -1,0 +1,14 @@
+.carrusel-componente{
+  max-width: 200px;
+  img{
+    border-radius: 10px;
+    padding: 10 0px;
+  }
+  &__detalles{
+    padding: 5px;
+    background-color: #ffb6e8;
+    h3, p{
+      margin: 0;
+    }
+  }
+}
