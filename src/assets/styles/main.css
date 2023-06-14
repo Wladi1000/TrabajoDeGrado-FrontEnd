@@ -11806,6 +11806,20 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.navbar {
+  padding: 2rem;
+  background-color: white;
+}
+.navbar .navbar-collapse {
+  align-items: center;
+  justify-content: space-between;
+}
+@media screen and (max-width: 767px) {
+  .navbar .navbar-brand {
+    display: none;
+  }
+}
+
 .nav {
   background-color: aqua;
 }
