@@ -1,6 +1,8 @@
 <script setup>
 import { useRouter } from "vue-router";
-
+import homeHero from "../meta/home-Hero.vue";
+import Nav from "../components/nav.vue";
+import homeProducts from '../meta/home-products.vue' ;
 
 const router = useRouter();
 
@@ -11,17 +13,22 @@ const moverLogin = () => {
 </script>
 <template>
   <div class="default">
-    <h1>Bazar de la Alianza</h1>
-    <h2>Ingresa a tu cuenta</h2>
-    <ul class="default__caracteristicas">
-      <li>Ver tu lista de favoritos</li>
-      <li>Busca y reordena compras anteriores</li>
-      <li>Ve el estado de tus compras</li>
-    </ul>
-    <div class="default__acciones">
-      <button class="login" @click="moverLogin()">¿Ya eres cliente? Iniciar sesion</button>
-      <button>¿Nuevo en Alianza? Crea una cuenta</button>
-      <button>Omitir inicio de sesion</button>
-    </div>
+    <Nav/>
+    <homeHero/>
+    <homeProducts/>
+    <div class="container h-100">
+        <div class="row p-5 h-100 justify-content-center align-items-center">
+          <div class="col-md-6">
+            <img src="/img/svg/product.svg" alt="" width="400">
+          </div>
+          <div class="col-md-6">
+            <h3>Learn More About us</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur quaerat voluptate iusto? Nihil voluptas vitae veritatis magnam reprehenderit, reiciendis ex? Libero quasi natus veniam voluptatum, voluptas exercitationem ratione consectetur et!
+            </p>
+             <button class="btn custom-btn btn-outline-primary mr-4">Browse Products</button>
+          </div>
+        </div>
+      </div>
   </div>
 </template>
