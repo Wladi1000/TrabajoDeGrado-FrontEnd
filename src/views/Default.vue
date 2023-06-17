@@ -3,6 +3,7 @@ import { useRouter } from "vue-router";
 import homeHero from "../meta/home-Hero.vue";
 import Nav from "../components/nav.vue";
 import homeProducts from '../meta/home-products.vue' ;
+import login from "../components/login.vue";
 
 const router = useRouter();
 
@@ -30,5 +31,6 @@ const moverLogin = () => {
           </div>
         </div>
       </div>
+      <login></login>
   </div>
 </template>
