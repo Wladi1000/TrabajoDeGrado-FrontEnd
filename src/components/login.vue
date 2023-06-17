@@ -5,7 +5,7 @@
     <!-- Modal -->
     <div
       class="modal fade"
-      id="staticBackdrop"
+      id="login"
       data-bs-backdrop="static"
       data-bs-keyboard="false"
       tabindex="-1"
@@ -16,7 +16,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="staticBackdropLabel">
-              Modal title
+              Iniciar sesion
             </h1>
             <button
               type="button"

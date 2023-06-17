@@ -45,7 +45,7 @@ import { RouterLink } from "vue-router";
               <a
                 class="btn btn-outline-success my-2 my-sm-0"
                 data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop"
+                data-bs-target="#login"
                 >Get Start</a
               >
             </form>
