@@ -11835,21 +11835,6 @@ button.login {
   background-color: #e7ed2dc1;
 }
 
-.carrusel-componente {
-  max-width: 200px;
-}
-.carrusel-componente img {
-  border-radius: 10px;
-  padding: 10 0px;
-}
-.carrusel-componente__detalles {
-  padding: 5px;
-  background-color: #ffb6e8;
-}
-.carrusel-componente__detalles h3, .carrusel-componente__detalles .h3, .carrusel-componente__detalles p {
-  margin: 0;
-}
-
 #app {
   display: flex;
   flex-direction: column;
