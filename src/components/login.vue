@@ -1,5 +1,18 @@
 <script setup>
-let email, password, name;
+import { ref } from 'vue';
+//import firebase from 'node_modules/firebase';
+
+let loginForm = ref(true);
+
+let email = ref(""), password = ref(""), name = ref("");
+
+const invocarLogin = () =>{
+  loginForm.value = true;
+};
+const invocarSignup = () =>{
+  loginForm.value = false;
+};
+
 </script>
 <template>
   <div class="login">
@@ -34,6 +47,7 @@ let email, password, name;
             >
               <li class="nav-item">
                 <a
+                  @click="invocarLogin()"
                   class="nav-link active"
                   id="pills-home-tab"
                   data-toggle="pill"
@@ -46,6 +60,7 @@ let email, password, name;
               </li>
               <li class="nav-item">
                 <a
+                  @click="invocarSignup()"
                   class="nav-link"
                   id="pills-register-tab"
                   data-toggle="pill"
@@ -64,6 +79,7 @@ let email, password, name;
                 id="pills-login"
                 role="tabpanel"
                 aria-labelledby="pills-login-tab"
+                v-show="loginForm"
               >
                 <h5 class="text-center">Login Please</h5>
                 <div class="form-group">
@@ -97,7 +113,8 @@ let email, password, name;
                 </div>
               </div>
               <div
-                class="tab-pane fade"
+                v-show="!loginForm"
+                class="tab-pane fade show active"
                 id="pills-register"
                 role="tabpanel"
                 aria-labelledby="pills-register-tab"
