@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-//import firebase from 'node_modules/firebase';
+import { firebaseApp } from '../firebaseConfig.js';
 
 let loginForm = ref(true);
 
