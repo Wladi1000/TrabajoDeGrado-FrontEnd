@@ -4,6 +4,7 @@ import carruselComponente from '../components/carruselComponente.vue';
 </script>
 <template>
   <div class="inicio">
+    <Nav/>
     <h1>Esto es un inicio</h1>
     <carrusel-componente 
       imagen="https://picsum.photos/200"

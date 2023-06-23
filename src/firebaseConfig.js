@@ -17,17 +17,19 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const firebaseApp = initializeApp(firebaseConfig);
+//const analytics = getAnalytics(app);
 
-let firebaseApp;
+// let firebaseApp;
 
-if (getApps().length === 0) {
-  firebaseApp = initializeApp(firebaseConfig);
-} else {
-  console.log("Ya hay una app iniciada")
-  firebaseApp = getApp();
+// if (getApps().length === 0) {
+//   firebaseApp = initializeApp(firebaseConfig);
+// } else {
+//   console.log("Ya hay una app iniciada")
+//   firebaseApp = getApp();
 
-}
+// }
+
+//export { firebaseApp };
 
 export { firebaseApp };

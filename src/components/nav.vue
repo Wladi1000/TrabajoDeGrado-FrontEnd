@@ -1,5 +1,28 @@
 <script setup>
-import { RouterLink } from "vue-router";
+import { RouterLink, useRouter } from "vue-router";
+import { onMounted, ref } from "vue";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+
+const isLoggedIn = ref(false);
+const router = useRouter();
+
+let auth;
+onMounted(() =>{
+  auth = getAuth();
+  onAuthStateChanged(auth, (user) =>{
+    if (user){
+      isLoggedIn.value = true;
+    }else{
+      isLoggedIn.value = false;
+    }
+  });
+});
+
+const logOut = () =>{
+  signOut(auth).then(() =>{
+    router.push("/");
+  });
+};
 </script>
 <template>
   <!-- <nav class="nav">
@@ -49,6 +72,9 @@ import { RouterLink } from "vue-router";
                 >Get Start</a
               >
             </form>
+          </li>
+          <li>
+            <button v-if="isLoggedIn" @click="logOut()" type="button" class="btn btn-secondary">Cerrar Sesion</button>
           </li>
         </ul>
       </div>

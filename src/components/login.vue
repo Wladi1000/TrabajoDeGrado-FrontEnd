@@ -1,18 +1,72 @@
 <script setup>
-import { ref } from 'vue';
-import { firebaseApp } from '../firebaseConfig.js';
-
+import { onMounted, ref } from "vue";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { useRouter } from "vue-router";
 let loginForm = ref(true);
 
-let email = ref(""), password = ref(""), name = ref("");
+const router = useRouter();
+const errMsg = ref(); // Mensaje de error
 
-const invocarLogin = () =>{
+let email = ref(""),
+  password = ref(""),
+  name = ref("");
+
+const invocarLogin = () => {
   loginForm.value = true;
 };
-const invocarSignup = () =>{
+const invocarSignup = () => {
   loginForm.value = false;
 };
 
+const registrar = () => {
+  const auth = getAuth(); // Sale de firebase/auth
+  createUserWithEmailAndPassword(getAuth(), email.value, password.value)
+    .then((data) => {
+      console.log("Registrado de forma exitosa!");
+      console.log(auth.currentUser);
+      router.push("/Inicio"); //Redireccionar al inicio del cliente
+    })
+    .catch((error) => {
+      console.log(error.code);
+      alert(error.message);
+    });
+};
+
+const login = () => {
+  const auth = getAuth(); // Sale de firebase/auth
+  signInWithEmailAndPassword(getAuth(), email.value, password.value)
+    .then((data) => {
+      console.log("Registrado de forma exitosa!");
+      console.log(auth.currentUser);
+      router.push("/Inicio"); //Redireccionar al inicio del cliente
+    })
+    .catch((error) => {
+      console.log(error.code);
+      //alert(error.message);
+      switch (error.code) {
+        case "auth/invalid-email":
+          errMsg.value = "Correo invalido";
+          break;
+        case "auth/user-not-found":
+          errMsg.value = "No se ha conseguido una cuenta con este correo";
+          break;
+        case "auth/wrong-password":
+          errMsg.value = "Contraseña incorrecta";
+          break;
+        default:
+          errMsg.value = "Correo o contraseña incorrectos";
+          break;
+      }
+    });
+};
+
+const signInWithGoogle = () => {};
+
+//-----------------------
 </script>
 <template>
   <div class="login">
@@ -55,8 +109,8 @@ const invocarSignup = () =>{
                   role="tab"
                   aria-controls="pills-login"
                   aria-selected="true"
-                  >Login</a
-                >
+                  >Login
+                </a>
               </li>
               <li class="nav-item">
                 <a
@@ -68,8 +122,8 @@ const invocarSignup = () =>{
                   role="tab"
                   aria-controls="pills-register"
                   aria-selected="false"
-                  >Signup</a
-                >
+                  >Signup
+                </a>
               </li>
             </ul>
 
@@ -83,6 +137,7 @@ const invocarSignup = () =>{
               >
                 <h5 class="text-center">Login Please</h5>
                 <div class="form-group">
+                  <p v-if="errMsg" style="color: red;">{{ errMsg }}</p>
                   <label for="exampleInputEmail1">Email address</label>
                   <input
                     type="email"
@@ -100,7 +155,7 @@ const invocarSignup = () =>{
                   <label for="exampleInputPassword1">Password</label>
                   <input
                     type="password"
-                    @keyup.enter="login"
+                    @keyup.enter="login()"
                     v-model="password"
                     class="form-control"
                     id="exampleInputPassword1"
@@ -109,7 +164,13 @@ const invocarSignup = () =>{
                 </div>
 
                 <div class="form-group">
-                  <button class="btn btn-primary" @click="login">Login</button>
+                  <button
+                    class="btn btn-primary"
+                    @click="login()"
+                    data-bs-dismiss="modal"
+                  >
+                    Login
+                  </button>
                 </div>
               </div>
               <div
@@ -155,7 +216,11 @@ const invocarSignup = () =>{
                 </div>
 
                 <div class="form-group">
-                  <button class="btn btn-primary" @click="register">
+                  <button
+                    class="btn btn-primary"
+                    @click="registrar(email, password)"
+                    data-bs-dismiss="modal"
+                  >
                     Signup
                   </button>
                 </div>
