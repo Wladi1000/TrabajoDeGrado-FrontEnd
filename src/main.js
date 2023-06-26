@@ -7,6 +7,10 @@ import 'bootstrap';
 
 // Import the functions you need from the SDKs you need
 import { initializeApp, getApps, getApp } from "firebase/app";
+
+// FireStore
+import { getFirestore } from 'firebase/firestore';
+
 //import { getAnalytics } from "firebase/analytics";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -27,6 +31,10 @@ const firebaseConfig = {
 // Initialize Firebase
 initializeApp(firebaseConfig);
 //getAnalytics(app);
+
+// FireStore
+const db = getFirestore();
+export { db };
 
 const app = createApp(App);
 
