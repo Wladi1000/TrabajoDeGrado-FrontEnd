@@ -19,16 +19,25 @@ const router = createRouter({
     {
       path: '/Buscar',
       name: 'Buscar',
+      meta: {
+        requiresAuth: true,
+      },
       component: () => import('../views/Buscar.vue')
     },
     {
       path: '/Perfil',
       name: 'Perfil',
+      meta: {
+        requiresAuth: true,
+      },
       component: () => import('../views/Perfil.vue')
     },
     {
       path: '/admin',
       name: 'admin',
+      meta: {
+        requiresAuth: true,
+      },
       component: () => import('../views/Admin.vue'),
       children:[
         {
